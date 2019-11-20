@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Emobot - Chat</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Bootstrap 3 template for corporate business" />
+		<!-- css -->
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+		<link href="plugins/flexslider/flexslider.css" rel="stylesheet" media="screen" />
+		<link href="css/cubeportfolio.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+	
+		<!-- Theme skin -->
+		<link id="t-colors" href="skins/default.css" rel="stylesheet" />
+	
+		<!-- boxed bg -->
+		<link id="bodybg" href="bodybg/bg2.css" rel="stylesheet" type="text/css" />
+
+		<!-- extra stuff -->
+        <link href="css/commentsection.css" rel="stylesheet" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link href="css/new.css" rel="stylesheet" />
+	</head>
+	<body>
+		<!-- <div class="container-fluid h-100"> -->
+        <header>
+			
+			<div class="navbar navbar-default navbar-static-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+						<a class="navbar-brand" href="index.html"><img src="img/emobotlogo.png" alt="" width="52" height="52" /></a>
+					</div>
+					<div class="navbar-collapse collapse ">
+						<ul class="nav navbar-nav">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="video.html">Video</a></li>
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
+        
+        <section id="content">        
+            <!-- divider -->
+            <div class="container">
+			<div class="row justify-content-center h-100">
+				<div class="col-md-8 col-xl-6 chat">
+					<div class="card">
+						<div class="card-header msg_head">
+							<div class="d-flex bd-highlight">
+								<div class="img_cont">
+									<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
+									<span class="online_icon"></span>
+								</div>
+								<div class="user_info">
+									<span>welcome user!</span>
+								</div>
+							</div>
+						</div>
+						<div id="chatbox" class="card-body msg_card_body">
+						</div>
+						<div class="card-footer">
+							<div class="input-group">
+								<div class="input-group-append">
+									<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+								</div>
+								<textarea id = "text" name="" class="form-control type_msg" placeholder="Type your message..."></textarea>
+								<button type="submit" class="input-group-text send_btn" onclick="display() ;">Send</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-xl-3 chat">
+					<div class="card mb-sm-3 mb-md-0 contacts_card">
+				
+						<div id="result">
+								<div class="card-footer">
+									
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+            </div>
+        </section>
+		<!-- </div> -->
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/modernizr.custom.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="plugins/flexslider/jquery.flexslider-min.js"></script>
+		<script src="plugins/flexslider/flexslider.config.js"></script>
+		<script src="js/jquery.appear.js"></script>
+		<script src="js/stellar.js"></script>
+		<script src="js/classie.js"></script>
+		<script src="js/uisearch.js"></script>
+		<script src="js/jquery.cubeportfolio.min.js"></script>
+		<script src="js/google-code-prettify/prettify.js"></script>
+		<script src="js/animate.js"></script>
+		<script src="js/custom.js"></script>
+	</body>
+</html>
+
+<script>
+	function display(){
+	
+	text = document.getElementById("text");
+	if(text.value!=""){
+		console.log(text.value)
+		d = document.createElement("div");
+		d.className = "d-flex justify-content-end mb-4";
+		di = document.createElement("div");
+		di.className = "msg_cotainer";
+		di.innerHTML = text.value;
+		d.appendChild(di);
+		chatbox = document.getElementById("chatbox");
+		chatbox.appendChild(d);
+
+		xhr= new XMLHttpRequest();
+		xhr.onreadystatechange=this.display_emote;
+		xhr.open("GET","http://localhost:5050/sendmsg/"+text.value, true);
+		xhr.send();
+		
+		text.value = "";
+	}	
+	}
+
+	function display_emote(){
+		if(this.readyState==4 && this.status==200){
+			message = this.responseText;
+			result = document.getElementById("result");
+			result.innerHTML = "";
+			d1 = document.createElement("div");
+			d1.className = "d-flex justify-content-start mb-4";
+			di = document.createElement("div");
+			di.className = "msg_cotainer_send";
+			di.innerHTML =  "<img src='img/emojis/" + message +  ".png' height =20 width =20>";
+			d1.appendChild(di);
+			chatbox = document.getElementById("chatbox");
+			chatbox.appendChild(d1);
+			result.innerHTML =  "<img src='img/emojis/" + message +  ".png' height =300 width =300 style=\"margin:75px 25px\">";
+	
+		}	   
+	}
+		
+	</script>

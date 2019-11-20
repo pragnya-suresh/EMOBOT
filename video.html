@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Emobot - Videos</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Bootstrap 3 template for corporate business" />
+	<!-- css -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/cubeportfolio.min.css" rel="stylesheet" />
+	<link href="css/style.css" rel="stylesheet" />
+
+
+	<!-- Theme skin -->
+	<link id="t-colors" href="skins/default.css" rel="stylesheet" />
+
+
+	<!-- boxed bg -->
+	<link id="bodybg" href="bodybg/bg1.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+	<div id="wrapper">
+
+		<!-- start header -->
+		<header>
+			
+			<div class="navbar navbar-default navbar-static-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+						<a class="navbar-brand" href="index.html"><img src="img/emobotlogo.png" alt="" width="52" height="52" /></a>
+					</div>
+					<div class="navbar-collapse collapse ">
+						<ul class="nav navbar-nav">
+                            <li><a href="index.html">Home</a></li>
+                            <li class = "active"><a href="video.html">Video</a></li>
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- end header -->
+		<section id="inner-headline">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<ul class="breadcrumb">
+							<li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+							<li class="active">Videos</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="content">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div id="grid-container" class="cbp-l-grid-projects">
+							<ul>
+								<li class="cbp-item graphic">
+									<div class="cbp-caption">
+										<div class="cbp-caption-defaultWrap">
+											<img src="https://img.youtube.com/vi/HzeekxtyFOY/0.jpg" alt="" width = "100%" height = "100%"/>
+										</div>
+										<div class="cbp-caption-activeWrap">
+											<div class="cbp-l-caption-alignCenter">
+												<div class="cbp-l-caption-body" id = "1" onclick = "get_id(this.id)">
+													<a href="comments.html">view video</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="cbp-l-grid-projects-title">Greta Thunberg on Climate Change</div>
+								</li>
+								<li class="cbp-item web-design logo">
+									<div class="cbp-caption">
+										<div class="cbp-caption-defaultWrap">
+											<img src="https://img.youtube.com/vi/t433PEQGErc/0.jpg" alt="" width = "100%" height = "100%"/>
+										</div>
+										<div class="cbp-caption-activeWrap">
+											<div class="cbp-l-caption-alignCenter">
+												<div id = "2" onclick = "get_id(this.id)">
+													<a href="comments.html">view video</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="cbp-l-grid-projects-title">Joker - Trailer</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+	<!-- javascript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/modernizr.custom.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.appear.js"></script>
+	<script src="js/stellar.js"></script>
+	<script src="js/classie.js"></script>
+	<script src="js/uisearch.js"></script>
+	<script src="js/jquery.cubeportfolio.min.js"></script>
+	<script src="js/google-code-prettify/prettify.js"></script>
+	<script src="js/animate.js"></script>
+	<script src="js/custom.js"></script>
+
+
+</body>
+
+
+</html>
+<script>
+	function get_id(id_ele){
+		sessionStorage.video_id = id_ele;
+	}
+	
+     
+
+</script>
